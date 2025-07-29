@@ -1,0 +1,67 @@
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #fff;
+  color: #000;
+  transition: background-color 0.3s, color 0.3s;
+}
+body.dark {
+  background-color: #121212;
+  color: #fff;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: inherit;
+  border-bottom: 1px solid #ccc;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+nav a {
+  margin: 0 1rem;
+  text-decoration: none;
+  color: inherit;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+nav a:hover {
+  color: #007bff;
+}
+.toggle {
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  background: transparent;
+  border: 1px solid;
+  border-radius: 4px;
+}
+section {
+  padding: 4rem 2rem;
+}
+footer {
+  text-align: center;
+  padding: 1rem;
+  background: #f1f1f1;
+  color: #333;
+}
+footer.dark {
+  background: #1e1e1e;
+  color: #aaa;
+}
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeIn 1s forwards;
+}
+.fade-in.delay-1 {
+  animation-delay: 0.5s;
+}
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
