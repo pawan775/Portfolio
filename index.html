@@ -1,424 +1,387 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pawan | Front-End Developer</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Pawan Puthran – Software Developer, Full Stack Engineer & Problem Solver. Explore my portfolio." />
+  <meta name="keywords" content="Pawan Puthran, portfolio, software developer, full stack, web developer" />
+  <meta property="og:title" content="Pawan Puthran | Software Developer" />
+  <meta property="og:description" content="Passionate software developer building modern web applications." />
+  <meta property="og:type" content="website" />
+  <title>Pawan Puthran | Software Developer</title>
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            overflow-x: hidden;
-            transition: all 0.3s ease;
-        }
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
 
-        body.dark {
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-        }
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
-        /* Animated background particles */
-        .particles {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 1;
-        }
-
-        .particle {
-            position: absolute;
-            width: 4px;
-            height: 4px;
-            background: rgba(255, 255, 255, 0.5);
-            border-radius: 50%;
-            animation: float 6s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 1; }
-            50% { transform: translateY(-20px) rotate(180deg); opacity: 0.5; }
-        }
-
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            padding: 1rem 2rem;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 1000;
-            transition: all 0.3s ease;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        nav {
-            display: flex;
-            gap: 2rem;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            position: relative;
-            transition: all 0.3s ease;
-        }
-
-        nav a:hover {
-            color: #4ecdc4;
-        }
-
-        nav a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
-            transition: width 0.3s ease;
-        }
-
-        nav a:hover::after {
-            width: 100%;
-        }
-
-        .toggle {
-            background: rgba(255, 255, 255, 0.2);
-            border: none;
-            color: white;
-            padding: 0.5rem;
-            border-radius: 50%;
-            cursor: pointer;
-            font-size: 1.2rem;
-            transition: all 0.3s ease;
-        }
-
-        .toggle:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: rotate(180deg);
-        }
-
-        main {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            z-index: 10;
-        }
-
-        .hero {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            max-width: 1200px;
-            padding: 2rem;
-            align-items: center;
-        }
-
-        .hero-content {
-            animation: slideInLeft 1s ease-out;
-        }
-
-        .hero-image {
-            animation: slideInRight 1s ease-out;
-            position: relative;
-        }
-
-        .profile-container {
-            position: relative;
-            width: 400px;
-            height: 400px;
-            margin: 0 auto;
-        }
-
-        .profile-image {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid rgba(255, 255, 255, 0.3);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-            transition: all 0.3s ease;
-        }
-
-        .profile-image:hover {
-            transform: scale(1.05);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
-        }
-
-        .floating-elements {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-        }
-
-        .floating-element {
-            position: absolute;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            backdrop-filter: blur(10px);
-            animation: floatAround 8s ease-in-out infinite;
-        }
-
-        .floating-element:nth-child(1) {
-            top: 10%;
-            left: -10%;
-            width: 60px;
-            height: 60px;
-            animation-delay: 0s;
-        }
-
-        .floating-element:nth-child(2) {
-            top: 70%;
-            right: -10%;
-            width: 40px;
-            height: 40px;
-            animation-delay: 2s;
-        }
-
-        .floating-element:nth-child(3) {
-            bottom: 10%;
-            left: 10%;
-            width: 50px;
-            height: 50px;
-            animation-delay: 4s;
-        }
-
-        @keyframes floatAround {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            25% { transform: translateY(-20px) rotate(90deg); }
-            50% { transform: translateY(-10px) rotate(180deg); }
-            75% { transform: translateY(-30px) rotate(270deg); }
-        }
-
-        .title {
-            font-size: 4rem;
-            font-weight: bold;
-            margin-bottom: 1rem;
-            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4);
-            background-size: 300% 300%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: gradientShift 3s ease-in-out infinite;
-        }
-
-        @keyframes gradientShift {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-        }
-
-        .subtitle {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            color: rgba(255, 255, 255, 0.9);
-            line-height: 1.6;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-
-        .btn {
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 50px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn-primary {
-            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
-            color: white;
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: white;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-        }
-
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.5s;
-        }
-
-        .btn:hover::before {
-            left: 100%;
-        }
-
-        .skills-preview {
-            display: flex;
-            gap: 1rem;
-            margin-top: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .skill-tag {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
-            font-size: 0.9rem;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            transition: all 0.3s ease;
-        }
-
-        .skill-tag:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-2px);
-        }
-
-        @keyframes slideInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-100px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        @keyframes slideInRight {
-            from {
-                opacity: 0;
-                transform: translateX(100px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        .scroll-indicator {
-            position: absolute;
-            bottom: 2rem;
-            left: 50%;
-            transform: translateX(-50%);
-            color: rgba(255, 255, 255, 0.7);
-            animation: bounce 2s infinite;
-        }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
-            40% { transform: translateX(-50%) translateY(-10px); }
-            60% { transform: translateX(-50%) translateY(-5px); }
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .hero {
-                grid-template-columns: 1fr;
-                text-align: center;
-                gap: 2rem;
-            }
-
-            .profile-container {
-                width: 300px;
-                height: 300px;
-            }
-
-            .title {
-                font-size: 2.5rem;
-            }
-
-            .hero-content {
-                order: 2;
-            }
-
-            .hero-image {
-                order: 1;
-            }
-
-            nav {
-                display: none;
-            }
-        }
-    </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <!-- Animated background particles -->
-    <div class="particles" id="particles"></div>
 
-    <header>
-        <div class="logo"><strong>Pawan</strong></div>
-        <nav>
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#projects">Projects</a>
-            <a href="#skills">Skills</a>
-            <a href="#contact">Contact</a>
-        </nav>
-        <button class="toggle" onclick="toggleTheme()">🌓</button>
-    </header>
+  <!-- ===== CURSOR GLOW ===== -->
+  <div class="cursor-glow" id="cursorGlow"></div>
 
-    <main>
-        <section class="hero">
-            <div class="hero-content">
-                <h1 class="title">Hi, I'm Pawan</h1>
-                <p class="subtitle">A passionate front-end developer creating interactive experiences and smart systems that bring ideas to life through clean, modern code.</p>
-                
-                <div class="skills-preview">
-                    <span class="skill-tag">React</span>
-                    <span class="skill-tag">JavaScript</span>
-                    <span class="skill-tag">CSS3</span>
-                    <span class="skill-tag">HTML5</span>
-                    <span class="skill-tag">Node.js</span>
-                </div>
+  <!-- ===== NAVBAR ===== -->
+  <header class="navbar" id="navbar">
+    <a href="#home" class="nav-logo">PP</a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#home" class="nav-link active">Home</a>
+      <a href="#about" class="nav-link">About</a>
+      <a href="#skills" class="nav-link">Skills</a>
+      <a href="#projects" class="nav-link">Projects</a>
+      <a href="#experience" class="nav-link">Experience</a>
+      <a href="#contact" class="nav-link">Contact</a>
+    </nav>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
 
-                <div class="cta-buttons">
-                    <a href="#projects" class="btn btn-primary">View My Work</a>
-                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
-                </div>
+  <!-- ===== HERO SECTION ===== -->
+  <section class="hero" id="home">
+    <canvas id="particleCanvas"></canvas>
+    <div class="hero-inner">
+      <div class="hero-content">
+        <p class="hero-greeting">Hello, I'm</p>
+        <h1 class="hero-name">Pawan Puthran</h1>
+        <div class="hero-typewriter">
+          <span id="typewriter-text"></span><span class="cursor-blink">|</span>
+        </div>
+        <p class="hero-desc">
+          A passionate software developer who loves building modern, impactful web experiences and solving complex problems with clean, efficient code.
+        </p>
+        <div class="hero-buttons">
+          <a href="#projects" class="btn btn-primary"><i class="fas fa-eye"></i> View My Work</a>
+          <a href="assets/cv.pdf" class="btn btn-outline" download><i class="fas fa-download"></i> Download CV</a>
+        </div>
+        <div class="hero-socials">
+          <a href="https://github.com/pawan775" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+          <a href="https://linkedin.com/in/pawan-puthran2003" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          <a href="mailto:pawanputhran775@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+        </div>
+      </div>
+      <div class="hero-photo-wrap">
+        <div class="hero-photo-ring">
+          <img src="./assets/photo-casual.jpg" alt="Pawan Puthran – casual photo" class="hero-photo" />
+        </div>
+      </div>
+    </div>
+    <a href="#about" class="scroll-down" aria-label="Scroll down">
+      <i class="fas fa-chevron-down"></i>
+    </a>
+  </section>
+
+  <!-- ===== ABOUT SECTION ===== -->
+  <section class="section about-section" id="about">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2 class="section-title">About <span class="gradient-text">Me</span></h2>
+        <p class="section-subtitle">Get to know me better</p>
+      </div>
+      <div class="about-grid">
+        <div class="about-photo-col reveal">
+          <div class="about-photo-frame">
+            <img src="./assets/photo-formal.jpg" alt="Pawan Puthran – formal photo" class="about-photo" />
+            <div class="about-photo-deco deco-1"></div>
+            <div class="about-photo-deco deco-2"></div>
+          </div>
+        </div>
+        <div class="about-text-col reveal">
+          <h3 class="about-heading">Who am I?</h3>
+          <p class="about-paragraph">
+            I'm <strong>Pawan Puthran</strong>, a ~22-year-old Computer Science student and passionate software developer based in India. I thrive on building full-stack web applications and exploring how technology can solve real-world problems.
+          </p>
+          <p class="about-paragraph">
+            Whether it's designing clean user interfaces, engineering robust backends, or learning new frameworks – I bring enthusiasm and dedication to every project I take on.
+          </p>
+          <p class="about-paragraph">
+            <strong>What I do:</strong> I develop modern web apps using JavaScript, React, Node.js, and Python. I'm always curious about new tools and love turning ideas into working products.
+          </p>
+          <div class="about-stats">
+            <div class="stat-card glass-card reveal">
+              <i class="fas fa-folder-open"></i>
+              <h4>10+</h4>
+              <p>Projects</p>
             </div>
+            <div class="stat-card glass-card reveal">
+              <i class="fas fa-code"></i>
+              <h4>15+</h4>
+              <p>Technologies</p>
+            </div>
+            <div class="stat-card glass-card reveal">
+              <i class="fab fa-github"></i>
+              <h4>20+</h4>
+              <p>GitHub Repos</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-            <div class="hero-image">
-                <div class="profile-container">
-                    <img src="data:image/jpeg;base64,/9j/4KKKKACiiigAooooAKKKKACii
+  <!-- ===== SKILLS SECTION ===== -->
+  <section class="section skills-section" id="skills">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2 class="section-title">My <span class="gradient-text">Skills</span></h2>
+        <p class="section-subtitle">Technologies I work with</p>
+      </div>
+      <div class="skills-grid">
+
+        <div class="skill-category glass-card reveal">
+          <div class="skill-cat-header">
+            <i class="fas fa-code"></i>
+            <h3>Languages</h3>
+          </div>
+          <div class="skill-items">
+            <div class="skill-item"><span class="skill-icon"><i class="fab fa-python"></i></span><span>Python</span></div>
+            <div class="skill-item"><span class="skill-icon"><i class="fab fa-java"></i></span><span>Java</span></div>
+            <div class="skill-item"><span class="skill-icon"><i class="fab fa-js-square"></i></span><span>JavaScript</span></div>
+            <div class="skill-item"><span class="skill-icon"><i class="fab fa-html5"></i></span><span>HTML/CSS</span></div>
+            <div class="skill-item"><span class="skill-icon"><i class="fas fa-database"></i></span><span>SQL</span></div>
+          </div>
+        </div>
+
+        <div class="skill-category glass-card reveal">
+          <div class="skill-cat-header">
+            <i class="fas fa-layer-group"></i>
+            <h3>Frameworks</h3>
+          </div>
+          <div class="skill-items">
+            <div class="skill-item"><span class="skill-icon"><i class="fab fa-react"></i></span><span>React.js</span></div>
+            <div class="skill-item"><span class="skill-icon"><i class="fab fa-node-js"></i></span><span>Node.js</span></div>
+            <div class="skill-item"><span class="skill-icon"><i class="fab fa-node-js"></i></span><span>Express.js</span></div>
+            <div class="skill-item"><span class="skill-icon"><i class="fab fa-python"></i></span><span>Flask</span></div>
+          </div>
+        </div>
+
+        <div class="skill-category glass-card reveal">
+          <div class="skill-cat-header">
+            <i class="fas fa-tools"></i>
+            <h3>Tools</h3>
+          </div>
+          <div class="skill-items">
+            <div class="skill-item"><span class="skill-icon"><i class="fab fa-git-alt"></i></span><span>Git</span></div>
+            <div class="skill-item"><span class="skill-icon"><i class="fab fa-github"></i></span><span>GitHub</span></div>
+            <div class="skill-item"><span class="skill-icon"><i class="fas fa-code"></i></span><span>VS Code</span></div>
+            <div class="skill-item"><span class="skill-icon"><i class="fab fa-docker"></i></span><span>Docker</span></div>
+            <div class="skill-item"><span class="skill-icon"><i class="fas fa-paper-plane"></i></span><span>Postman</span></div>
+          </div>
+        </div>
+
+        <div class="skill-category glass-card reveal">
+          <div class="skill-cat-header">
+            <i class="fas fa-database"></i>
+            <h3>Databases</h3>
+          </div>
+          <div class="skill-items">
+            <div class="skill-item"><span class="skill-icon"><i class="fas fa-database"></i></span><span>MySQL</span></div>
+            <div class="skill-item"><span class="skill-icon"><i class="fas fa-leaf"></i></span><span>MongoDB</span></div>
+            <div class="skill-item"><span class="skill-icon"><i class="fas fa-database"></i></span><span>SQLite</span></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROJECTS SECTION ===== -->
+  <section class="section projects-section" id="projects">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2 class="section-title">My <span class="gradient-text">Projects</span></h2>
+        <p class="section-subtitle">Some things I've built</p>
+      </div>
+      <div class="projects-grid">
+
+        <div class="project-card glass-card reveal">
+          <div class="project-card-top">
+            <i class="fas fa-globe project-icon"></i>
+            <div class="project-links">
+              <a href="https://github.com/pawan775" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+              <a href="#" target="_blank" rel="noopener" aria-label="Live Demo"><i class="fas fa-external-link-alt"></i></a>
+            </div>
+          </div>
+          <h3 class="project-title">Personal Portfolio Website</h3>
+          <p class="project-desc">This very portfolio built with HTML, CSS &amp; JavaScript — featuring animations, glassmorphism, and a responsive design.</p>
+          <div class="project-tags">
+            <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span>
+          </div>
+        </div>
+
+        <div class="project-card glass-card reveal">
+          <div class="project-card-top">
+            <i class="fas fa-tasks project-icon"></i>
+            <div class="project-links">
+              <a href="https://github.com/pawan775" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+              <a href="#" target="_blank" rel="noopener" aria-label="Live Demo"><i class="fas fa-external-link-alt"></i></a>
+            </div>
+          </div>
+          <h3 class="project-title">Task Management App</h3>
+          <p class="project-desc">A full-stack task manager with user authentication, real-time updates, and a clean React-powered UI backed by Node.js and MongoDB.</p>
+          <div class="project-tags">
+            <span class="tag">React</span><span class="tag">Node.js</span><span class="tag">MongoDB</span>
+          </div>
+        </div>
+
+        <div class="project-card glass-card reveal">
+          <div class="project-card-top">
+            <i class="fas fa-cloud-sun project-icon"></i>
+            <div class="project-links">
+              <a href="https://github.com/pawan775" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+              <a href="#" target="_blank" rel="noopener" aria-label="Live Demo"><i class="fas fa-external-link-alt"></i></a>
+            </div>
+          </div>
+          <h3 class="project-title">Weather Dashboard</h3>
+          <p class="project-desc">Real-time weather application using the OpenWeather API, built with Python and Flask. Features location search and dynamic visualizations.</p>
+          <div class="project-tags">
+            <span class="tag">Python</span><span class="tag">Flask</span><span class="tag">API</span>
+          </div>
+        </div>
+
+        <div class="project-card glass-card reveal">
+          <div class="project-card-top">
+            <i class="fas fa-shopping-cart project-icon"></i>
+            <div class="project-links">
+              <a href="https://github.com/pawan775" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+              <a href="#" target="_blank" rel="noopener" aria-label="Live Demo"><i class="fas fa-external-link-alt"></i></a>
+            </div>
+          </div>
+          <h3 class="project-title">E-commerce Platform</h3>
+          <p class="project-desc">Online store with product listings, cart management, and payment integration built on React frontend and Node.js/MySQL backend.</p>
+          <div class="project-tags">
+            <span class="tag">React</span><span class="tag">Node.js</span><span class="tag">MySQL</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== EXPERIENCE / EDUCATION SECTION ===== -->
+  <section class="section experience-section" id="experience">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2 class="section-title">Experience &amp; <span class="gradient-text">Education</span></h2>
+        <p class="section-subtitle">My journey so far</p>
+      </div>
+      <div class="timeline">
+
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card glass-card">
+            <span class="timeline-year">2021 – Present</span>
+            <h3>Bachelor of Science in Computer Science</h3>
+            <p class="timeline-org"><i class="fas fa-university"></i> University (India)</p>
+            <p class="timeline-desc">Studying core CS subjects including Data Structures, Algorithms, Database Systems, Operating Systems, and Web Development. Active participant in hackathons and coding competitions.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card glass-card">
+            <span class="timeline-year">2024</span>
+            <h3>Full Stack Web Development</h3>
+            <p class="timeline-org"><i class="fas fa-laptop-code"></i> Self-paced / Online Courses</p>
+            <p class="timeline-desc">Completed in-depth courses on React, Node.js, Express, and MongoDB. Built multiple full-stack projects applying modern development practices.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card glass-card">
+            <span class="timeline-year">2023</span>
+            <h3>Open Source Contributor</h3>
+            <p class="timeline-org"><i class="fab fa-github"></i> GitHub</p>
+            <p class="timeline-desc">Contributed to open source projects on GitHub — improving documentation, fixing bugs, and building small features across multiple repositories.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT SECTION ===== -->
+  <section class="section contact-section" id="contact">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2 class="section-title">Get In <span class="gradient-text">Touch</span></h2>
+        <p class="section-subtitle">I'd love to hear from you</p>
+      </div>
+      <div class="contact-grid">
+
+        <div class="contact-info reveal">
+          <div class="contact-info-card glass-card">
+            <i class="fas fa-envelope"></i>
+            <div>
+              <h4>Email</h4>
+              <a href="mailto:pawanputhran775@gmail.com">pawanputhran775@gmail.com</a>
+            </div>
+          </div>
+          <div class="contact-info-card glass-card">
+            <i class="fab fa-linkedin"></i>
+            <div>
+              <h4>LinkedIn</h4>
+              <a href="https://linkedin.com/in/pawan-puthran2003" target="_blank" rel="noopener">pawan-puthran2003</a>
+            </div>
+          </div>
+          <div class="contact-info-card glass-card">
+            <i class="fab fa-github"></i>
+            <div>
+              <h4>GitHub</h4>
+              <a href="https://github.com/pawan775" target="_blank" rel="noopener">pawan775</a>
+            </div>
+          </div>
+          <div class="contact-info-card glass-card">
+            <i class="fas fa-map-marker-alt"></i>
+            <div>
+              <h4>Location</h4>
+              <p>India</p>
+            </div>
+          </div>
+        </div>
+
+        <form class="contact-form glass-card reveal" id="contactForm">
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" placeholder="John Doe" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Your Email</label>
+            <input type="email" id="email" name="email" placeholder="john@example.com" required />
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" placeholder="Your message here..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-full">
+            <i class="fas fa-paper-plane"></i> Send Message
+          </button>
+          <div class="form-success" id="formSuccess">
+            <i class="fas fa-check-circle"></i> Message sent! I'll get back to you soon.
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p class="footer-copy">&copy; 2026 <span class="gradient-text">Pawan Puthran</span>. All rights reserved.</p>
+      <div class="footer-socials">
+        <a href="https://github.com/pawan775" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://linkedin.com/in/pawan-puthran2003" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="mailto:pawanputhran775@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
